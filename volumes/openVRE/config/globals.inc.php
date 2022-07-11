@@ -6,11 +6,11 @@
 
 
 // Main config
-$GLOBALS['SERVER']    = "http://84.88.186.195:8088"; // domain 
+$GLOBALS['SERVER']    = "https://nextprocurement.bsc.es"; // domain 
 $GLOBALS['BASEURL']   = "/"; // prefix url path. Set "/" for no prefix
-$GLOBALS['AppPrefix'] = "VRE-TEST"; // project url acronym
-$GLOBALS['NAME']      = "Project Name"; // project name 
-$GLOBALS['SITETITLE'] = "Project Name | Virtual Research Environment"; // site title
+$GLOBALS['AppPrefix'] = "NextProcurement"; // project url acronym
+$GLOBALS['NAME']      = "NextProcurement"; // project name 
+$GLOBALS['SITETITLE'] = "NextProcurement | Virtual Research Environment"; // site title
 $GLOBALS['TIMEOUT']   = 3600; // session and cookies timeout
 
 // Email
@@ -51,7 +51,7 @@ $GLOBALS['tool_io_dev_sample']  = $GLOBALS['root']."/install/data/tool_schemas/t
 // Oauth2 authentification
 $GLOBALS['auth_credentials']       = __DIR__."/oauth2.conf"; // oauth2 client credentials
 $GLOBALS['authAdmin_credentials']  = __DIR__."/oauth2_admin.conf"; // oauth2 client credentials with admin privileges
-$GLOBALS['authServer']             = 'http://84.88.186.195:8089/auth'; // external oauth2 server
+$GLOBALS['authServer']             = 'https://nextprocurement.bsc.es/auth'; // external oauth2 server
 $GLOBALS['authRealm']              = 'VRE'; // keycloak realm
 $GLOBALS['urlAuthorize' ]          = $GLOBALS['authServer'].'/realms/'.$GLOBALS['authRealm'].'/protocol/openid-connect/auth';     //get autorization_code
 $GLOBALS['urlAccessToken']         = $GLOBALS['authServer'].'/realms/'.$GLOBALS['authRealm'].'/protocol/openid-connect/token';    //get token

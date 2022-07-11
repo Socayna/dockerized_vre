@@ -35,7 +35,7 @@ RUN chmod +x /usr/local/bin/setup.sh
 WORKDIR /var/www/html
 #RUN git clone https://github.com/inab/openVRE.git
 #RUN git clone https://github.com/Socayna/openVRE.git
-RUN git clone --single-branch --branch dockerized https://github.com/inab/openVRE.git
+RUN git clone --single-branch --branch nextprocurement https://github.com/inab/openVRE.git
 RUN pwd
 RUN cd openVRE
 WORKDIR /var/www/html/openVRE
