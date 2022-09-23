@@ -33,9 +33,11 @@ RUN apt-get update -y && apt install -y docker.io
 #    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # dummy user account
-RUN useradd -m dummy
-RUN echo "dummy:dummy" | chpasswd
+RUN useradd -m ubuntu
+RUN echo "ubuntu:dummy" | chpasswd
 #
+RUN useradd application
+RUN gpasswd -a application docker
 
 ADD setup_gridengine.sh /usr/local/bin/setup_gridengine.sh
 RUN chmod +x /usr/local/bin/setup_gridengine.sh

@@ -19,7 +19,7 @@ $GLOBALS['FROMNAME']  = "VRE"; // 'From' for VRE tickets and notifications
 $GLOBALS['ADMINMAIL'] = "admin@mail.es"; // BBC address for VRE ticket emails
 
 // SGE
-$GLOBALS['queueTask']  = "local.q"; //default queue
+$GLOBALS['queueTask']  = "testq"; //default queue
 
 // Mongo databases
 $GLOBALS['db_credentials'] = __DIR__."/mongo.conf"; // Mongo access 

@@ -8,3 +8,7 @@ db=db.getSiblingDB('openVRE');
 use openVRE;
 use openVRE;
 db.createCollection("VREcollection")
+dbs
+show databases
+show collections
+show collection

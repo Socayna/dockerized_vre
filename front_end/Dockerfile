@@ -70,6 +70,7 @@ EXPOSE 88 443
 #USER 2001:2001
 RUN useradd -m front_end
 RUN echo "front_end:front_end" | chpasswd
+RUN gpasswd -a application docker 
 #USER 2001:2001
 #
 #USER front_end
