@@ -83,6 +83,7 @@ services:
       - ./sge:/sge
       - ./sge/configuration:/tmp/configuration
       - ./sge/configuration:/etc/gridengine/configuration
+      - ./volumes/shared_data:/shared_data
     environment:
       RUNUSER_UERNAME: dummy
       RUNUSER_HOME: ./sge
@@ -96,7 +97,7 @@ services:
       - shared
     ports:
       - 6444:6444
-    restart: always  
+        #restart: always  
 
   front_end:
     container_name: front_end
@@ -136,6 +137,8 @@ services:
 networks:
   dev:
     driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1442
   open-vre:
     ipam:
       config:
