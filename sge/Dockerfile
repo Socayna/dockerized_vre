@@ -32,25 +32,12 @@ RUN apt-get update -y && apt install -y docker.io
 #    apt-get install -y gridengine-master gridengine-exec gridengine-client; \
 #    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# dummy user account
-RUN useradd -m dummy
-RUN echo "dummy:dummy" | chpasswd
+# application user account
+RUN useradd -m application
+RUN echo "application:application" | chpasswd
 #
 
 ADD setup_gridengine.sh /usr/local/bin/setup_gridengine.sh
 RUN chmod +x /usr/local/bin/setup_gridengine.sh
-#ADD configuration /etc/gridengine/configuration
-#RUN chmod +x /etc/gridengine/configuration
 
-#RUN useradd -m front_end --uid=2001 && echo "front_end:front_end" | \
-#      chpasswd
-#USER ${UID}:${GID}
-#RUN useradd -m tool --uid=2002 && echo "tool:tool" | \
-#      chpasswd
-
-#CMD /usr/local/bin/setup_gridengine.sh && qconf -as sgemaster && echo "hostname ; date" | qsub && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && tail -f /var/spool/gridengine/qmaster/messages
-#CMD /usr/local/bin/setup_gridengine.sh && tail -f /var/spool/gridengine/qmaster/messages 
-#CMD /usr/local/bin/setup_gridengine.sh && qconf -sconf > /tmp/configuration && sed 's/1000/0/g' /tmp/configuration > /etc/gridengine/configuration && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && tail -f /var/spool/gridengine/qmaster/messages
-#CMD /usr/local/bin/setup_gridengine.sh && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && qconf -as sgetool.shared && tail -f /var/spool/gridengine/qmaster/messages
-#CMD /usr/local/bin/setup_gridengine.sh && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && tail -f /var/spool/gridengine/qmaster/messages
-CMD /usr/local/bin/setup_gridengine.sh && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && tail -f /var/spool/gridengine/qmaster/messages
+CMD /usr/local/bin/setup_gridengine.sh && sleep 15 && qconf -as front_end.dockerized_vre_open-vre && chmod 666 /var/run/docker.sock && tail -f /var/spool/gridengine/qmaster/messages

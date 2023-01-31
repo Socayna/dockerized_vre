@@ -7,7 +7,7 @@
 
 // Main config
 $GLOBALS['SERVER']    = "https://nextprocurement.bsc.es"; // domain 
-$GLOBALS['BASEURL']   = "/"; // prefix url path. Set "/" for no prefix
+$GLOBALS['BASEURL']   = "/vre/"; // prefix url path. Set "/" for no prefix
 $GLOBALS['AppPrefix'] = "NextProcurement"; // project url acronym
 $GLOBALS['NAME']      = "NextProcurement"; // project name 
 $GLOBALS['SITETITLE'] = "NextProcurement | Virtual Research Environment"; // site title
