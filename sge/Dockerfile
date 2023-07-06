@@ -1,8 +1,10 @@
 FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y && apt-get install -y gnupg2 vim
-RUN echo 'deb http://ftp.debian.org/debian/ stretch main contrib non-free\n\
-deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free\n' > /etc/apt/sources.list.d/debian.list
+RUN echo "deb http://security.debian.org/debian-security bullseye-security main contrib non-free" > /etc/apt/sources.list
+
+#RUN echo 'deb http://ftp.debian.org/debian/ stretch main contrib non-free\n\
+#deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free\n' > /etc/apt/sources.list.d/debian.list
 
 RUN echo 'Package: gridengine-*\n\
 Pin: release o=Debian\n\
@@ -20,6 +22,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 648ACFD622
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0E98404D386FA1D9
 
 RUN apt-get -y update
+#RUN apt-get install debian-keyring
 RUN apt-get install debian-archive-keyring
 RUN apt-key add /usr/share/keyrings/debian-archive-keyring.gpg
 RUN apt-get install -y gridengine-exec gridengine-master gridengine-qmon
